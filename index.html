@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>app_sudo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 0px;
+            background-color: #f4f4f9;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .cabeçalho {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .teclado_icone {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #ffffff;
+            
+        }
+        .teclado_icone button {
+            margin: 7px;
+            width: 80%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+        .teclado_icone button:hover {
+            background-color: #0056b3;
+        }
+        .bloco_anotação {
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            min-height: 200px;
+            margin-bottom: 20px;
+            border-radius: 9px;
+            background-color: #ffffff;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer button {
+            margin: 5px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+        footer button:hover {
+            background-color: #218838;
+        }
+        .movimentacao {
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .movimentacao button {
+            margin: 10px;
+            background-color: #ffc107;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+        .movimentacao button:hover {
+            background-color: #e0a800;
+        }
+        footer{
+            display: flex;
+            justify-content: space-between;
+            
+        }
+
+        .icones_precisão{
+            width: 50%;
+
+        }
+
+        .icones_chamar{
+            width: 50%;
+        }
+
+        button img{
+            height: 80px;
+            width: 97px;
+        }
+
+        .icones_precisão div{
+            text-align: center;
+        }
+
+        .icones_chamar div{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="cabeçalho">
+        <a href="https://translate.google.com.br/?sl=auto&tl=pt&op=translate">
+            <button class="btn btn-primary">Google Tradutor</button>
+        </a>
+    </header>
+    <div>
+        <div class="teclado_icone">
+            <div class="icones_precisão row">
+                <div class="estoussentindodor col-12 col-md-3">
+                    <button class="btn btn-secondary" onclick="falarClasse(this)">
+                        <img src="img/dor.png" alt="">
+                         </button>
+                         Dor
+                </div>
+                <div class="estoucomfome col-12 col-md-3">
+                    <button class="btn btn-secondary" onclick="falarClasse(this)">
+                        <img src="img/fome.png" alt="">
+                         </button>
+                         Fome
+                </div>
+                <div class="estoucentindossede col-12 col-md-3">
+                    <button class="btn btn-secondary" onclick="falarClasse(this)">
+                        <img src="img/sede.jpg" alt="">
+                         </button>
+                         sede
+                </div>
+                <div class="querudormir col-12 col-md-3">
+                    <button class="btn btn-secondary" onclick="falarClasse(this)">
+                        <img src="img/dormir.jfif" alt="">
+                         </button>
+                         Quero Dormir
+                </div>
+            </div>
+            <div class="icones_chamar row">
+                <div class="querubrincar col-12 col-md-3">
+                    <button class="btn btn-secondary" onclick="falarClasse(this)">
+                        <img src="img/brincar.jfif" alt="">
+                        </button>
+                        Brincar
+                </div>
+                <div class="queruirnubanheiro col-12 col-md-3">
+                    <button class="btn btn-secondary" onclick="falarClasse(this)">
+                        <img src="img/banheiro.jfif" alt="">
+                        </button>
+                        banheiro
+                </div>
+                <div class="queiruassistir col-12 col-md-3">
+                    <button class="btn btn-secondary" onclick="falarClasse(this)">
+                        <img src="img/assisitir.jfif" alt="" style="width: 98px;">
+                        </button>
+                        Assistir
+                </div>
+                <div class="querucarinho col-12 col-md-3">
+                    <button class="btn btn-secondary" onclick="falarClasse(this)">
+                        <img src="img/carinho.jfif" alt="">
+                        </button>
+                        Carinho
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="container">
+        <div class="movimentacao">
+            <button class="btn btn-warning" onclick="copiarTexto()">Copiar texto</button>
+            <button class="btn btn-danger" onclick="limparTexto()">Limpar texto</button>
+        </div>
+        <div class="bloco_anotação" contenteditable="true" id="blocoAnotacao">
+            Clique aqui e comece a digitar...
+        </div>
+    </main>
+    <footer>
+        <button class="btn btn-success" style="height: 120px; width: 150px;  border-radius: 30px; cursor: pointer;" onclick="falarTexto()">Falar</button>
+        <button class="btn btn-info" style="height: 120px; width: 150px; border-radius: 30px; cursor: pointer;" onclick="escutarAutoFalante()">Escutar</button>
+    </footer>
+    <script>
+        function falarTexto() {
+            const blocoAnotacao = document.getElementById('blocoAnotacao');
+            const texto = blocoAnotacao.innerText;
+            const sintese = window.speechSynthesis;
+            const utterance = new SpeechSynthesisUtterance(texto);
+            utterance.lang = 'pt-BR';
+            sintese.speak(utterance);
+        }
+
+        function falarClasse(button) {
+            const classe = button.parentNode.className.split(' ')[0];
+            const sintese = window.speechSynthesis;
+            const utterance = new SpeechSynthesisUtterance(classe);
+            utterance.lang = 'pt-BR';
+            sintese.speak(utterance);
+        }
+
+        function escutarAutoFalante() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'pt-BR';
+            recognition.start();
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                const blocoAnotacao = document.getElementById('blocoAnotacao');
+                blocoAnotacao.innerText += ' ' + transcript;
+            };
+        }
+
+        function copiarTexto() {
+            const blocoAnotacao = document.getElementById('blocoAnotacao');
+            const range = document.createRange();
+            range.selectNodeContents(blocoAnotacao);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            document.execCommand('copy');
+            alert('Texto copiado!');
+        }
+
+        function limparTexto() {
+            const blocoAnotacao = document.getElementById('blocoAnotacao');
+            blocoAnotacao.innerText = '';
+        }
+    </script>
+</body>
+</html>
